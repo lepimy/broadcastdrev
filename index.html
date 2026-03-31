@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Live Stream Viewer</title>
+        <script src="https://cdn.bootcdn.net/ajax/libs/flv.js/1.5.0/flv.min.js"></script>
+        <link rel="stylesheet" href="css/styles.css" />
+        <script src="js/scripts.js"></script>
+    </head>
+    <body>
+        <div class="center-box">
+            <video
+                id="videoElement"
+                controls
+                autoplay
+                width="640"
+                height="360"
+            ></video>
+        </div>   
+
+        <section class="section">
+            <div popover id="info-popover" class="info">
+                <section class="info-section">
+                    <div class="info-container">
+                        Сообщение отправлено. Пожалуйста, дождитесь ответа
+                        консультанта
+                        <button
+                            popovertarget="info-popover"
+                            popovertargetaction="hide"
+                            class="info-popover-close-btn"
+                            title="Close Chat"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                                fill="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"
+                                ></path>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+            </div>
+            <div popover id="chat-popover" class="chat">
+                <div class="chat-content-wrapper">
+                    <section class="chat-section">
+                        <div class="chat-input-container">
+                            <textarea
+                                autofocus
+                                id="chat-input"
+                                class="chat-textarea"
+                                placeholder="Напишите сюда что вас интересует"
+                                type="text"
+                            ></textarea>
+                            <button
+                                popovertarget="chat-popover"
+                                popovertargetaction="hide"
+                                id="send-button"
+                                class="chat-submit-btn"
+                                aria-label="Chat Submit"
+                                title="Chat Submit"
+                            >
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                >
+                                    <g clip-path="url(#clip0_208_691)">
+                                        <path
+                                            d="M2.5664 3.26059C2.32007 2.76794 2.51587 2.5663 3.02256 2.81964L21.0172 11.8169C21.5155 12.0661 21.5206 12.4896 21.0494 12.7513L3.69739 22.3914C3.21698 22.6582 2.98859 22.4559 3.18594 21.9427L6.36304 13.6822L16.2625 12.268L6.36306 10.8538L2.5664 3.26059Z"
+                                        />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_208_691">
+                                            <rect
+                                                width="24"
+                                                height="24"
+                                                fill="white"
+                                            />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <div id="action-button">
+            <button class="btn filled primary" popovertarget="chat-popover">
+                <span class="state-layer"
+                    >Задать вопрос
+                    <span class="material-symbols-outlined md-20"
+                        >chat</span
+                    ></span
+                >
+            </button>
+        </div>
+    </body>
+</html>
