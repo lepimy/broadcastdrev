@@ -2,11 +2,7 @@ USE broadcast;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
-
---
--- Database: `broadcast`
---
+SET time_zone = "+03:00";
 
 -- --------------------------------------------------------
 
@@ -39,3 +35,7 @@ CREATE TABLE `info` (
     `broadcast_status` boolean NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+INSERT INTO info (broadcast_status) VALUES (0);
