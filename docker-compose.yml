@@ -19,7 +19,7 @@ services:
     image: mariadb
     volumes:
       - mysql-data:/var/lib/mysql
-      - ./mariadb-init:/docker-entrypoint-initdb.d
+      - ./init-script.sql:/docker-entrypoint-initdb.d/init-script.sql
     environment:
       MYSQL_ROOT_PASSWORD: mariadb
       MYSQL_DATABASE: broadcast
