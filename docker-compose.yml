@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  nginx:
+    build: ./nginx/
+    ports:
+      - 80:80
+
+    volumes:
+      - ./src/:/var/www/html/
+
+  php:
+    build: ./src/
+    expose:
+      - 9000
+    volumes:
+      - ./src/:/var/www/html/
+
+  db:
+    image: mariadb
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mariadb-init:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: mariadb
+      MYSQL_DATABASE: broadcast
+
+volumes:
+  mysql-data:

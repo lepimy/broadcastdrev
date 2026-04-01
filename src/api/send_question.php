@@ -20,8 +20,9 @@ $questions = new Questions($dbh);
 if ($message !== null) {
     $result = $visitor->getByIp($client_ip);
     $row = $result->fetch(PDO::FETCH_ASSOC);
-    if (count($row) == 0) {
-        $visitor_id = $visitor->add($client_ip)->lastInsertId();
+    if (empty($row)) {
+        $visitor->add($client_ip);
+        $visitor_id = $dbh->lastInsertId();
     } else {
         $visitor_id = $row["id"];
     }
