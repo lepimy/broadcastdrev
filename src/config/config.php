@@ -15,6 +15,8 @@ try {
         [PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8mb4'"],
     );
 } catch (PDOException $e) {
-    exit("Error: " . $e->getMessage());
+    http_response_code(500);
+    exit(json_encode(["error" => "Internal Server Error"]));
+    //exit("Error: " . $e->getMessage());
 }
 ?>

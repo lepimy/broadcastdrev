@@ -35,7 +35,7 @@ class Questions
     function add($visitor_id, $message)
     {
         $sql =
-            "INSERT INTO question (visitor_id, message, is_read, date) values (:visitor_id, :message, 0, NOW());";
+            "INSERT INTO question (visitor_id, message, is_read, date) values (:visitor_id, :message, 0, NOW() + INTERVAL 3 hour);";
 
         $query = $this->conn->prepare($sql);
         $query->bindParam(":visitor_id", $visitor_id, PDO::PARAM_INT);

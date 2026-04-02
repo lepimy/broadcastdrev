@@ -6,7 +6,6 @@ header("Content-type: application/json");
 header("Access-Control-Allow-Origin: *");
 
 $info = new Info($dbh);
-
 $result = $info->getBroadcastStatus();
 
 if ($result->rowCount() > 0) {
