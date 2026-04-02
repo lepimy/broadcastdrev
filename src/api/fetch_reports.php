@@ -7,7 +7,7 @@ header("Access-Control-Allow-Origin: *");
 
 $log = new Log($dbh);
 
-$result = log->getAll();
+$result = $log->getAll();
 
 if ($result->rowCount() > 0) {
     $logArray = [];
@@ -15,10 +15,8 @@ if ($result->rowCount() > 0) {
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         $log = [
-            "question_id" => $id,
             "message" => $message,
             "date" => $date,
-            "is_read" => $is_read,
         ];
         array_push($logArray, $log);
     }
