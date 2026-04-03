@@ -2,21 +2,11 @@
 <html>
     <head>
         <title>Live Stream Viewer</title>
-        <script src="https://cdn.bootcdn.net/ajax/libs/flv.js/1.5.0/flv.min.js"></script>
         <link rel="stylesheet" href="css/styles.css" />
         <script src="js/scripts.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="center-box">
-            <video
-                id="videoElement"
-                controls
-                autoplay
-                width="640"
-                height="360"
-            ></video>
-        </div>   
-
         <section class="section">
             <div popover id="info-popover" class="info">
                 <section class="info-section">
@@ -49,13 +39,13 @@
                 <div class="chat-content-wrapper">
                     <section class="chat-section">
                         <div class="chat-input-container">
-                            <textarea
+                            <input
                                 autofocus
                                 id="chat-input"
                                 class="chat-textarea"
-                                placeholder="Напишите сюда что вас интересует"
+                                placeholder="Напишите, что вас интересует"
                                 type="text"
-                            ></textarea>
+                            ></input>
                             <button
                                 popovertarget="chat-popover"
                                 popovertargetaction="hide"
@@ -94,11 +84,11 @@
             </div>
         </section>
 
-        <div id="action-button">
+        <div class="action-button">
             <button class="btn filled primary" popovertarget="chat-popover">
                 <span class="state-layer"
                     >Задать вопрос
-                    <span class="material-symbols-outlined md-20"
+                    <span class="material-symbols-outlined md-size"
                         >chat</span
                     ></span
                 >

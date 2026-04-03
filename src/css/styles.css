@@ -25,7 +25,7 @@
     .info {
         /* background-color: oklch(99% 0 287); */
         background-color: transparent;
-        block-size: 130px;
+        block-size: 100px;
         border-radius: var(--radius-3) var(--radius-3) 0px 0px;
         border-width: 0;
         /* box-shadow: var(--shadow-6); */
@@ -37,7 +37,7 @@
         /* --opacityOK  */
         @media (prefers-reduced-transparency: no-preference) {
             backdrop-filter: blur(70px);
-            background-color: oklch(99% 0 287/ 30%);
+            background-color: oklch(99% 0 230 / 50%);
         }
 
         /* motionOK */
@@ -54,6 +54,8 @@
     @keyframes slide-out-down-dismiss {
         from {
             display: block;
+            z-index: 1;
+            position: absolute;
         }
 
         to {
@@ -91,12 +93,13 @@
     .info-section {
         display: grid;
         grid-template-rows: 1fr min-content;
-        padding-block: var(--size-5);
-        padding-inline: var(--size-7);
+        padding-block: var(--size-3);
+        padding-inline: var(--size-3);
     }
 
     .chat-input-container,
     .info-container {
+        font-size: var(--font-size-0);
         display: grid;
         grid-template-columns: 1fr min-content;
         box-shadow: var(--shadow-4);
@@ -105,6 +108,10 @@
         padding-inline: var(--size-px-4) var(--size-px-2);
         block-size: 58px;
         align-items: center;
+
+        @media (min-width: 375px) {
+            font-size: var(--font-size-1);
+        }
     }
 
     .chat-textarea {
@@ -118,6 +125,7 @@
         overflow: hidden;
         resize: none;
         block-size: var(--size-5);
+        white-space: nowrap;
     }
 
     .chat-submit-btn {
@@ -137,7 +145,7 @@
         --_state-layer-bg: oklch(1 0 0 / var(--_state-layer-op));
         background-color: transparent;
         font-weight: var(--font-weight-6);
-        font-size: var(--font-size-1);
+        font-size: var(--font-size-0);
         font-family: var(--font-family-default);
         min-block-size: 40px;
         text-decoration: none;
@@ -155,6 +163,10 @@
         white-space: nowrap;
         padding: 0;
         border-width: 0;
+
+        @media screen and (min-width: 768px) {
+            font-size: var(--font-size-1);
+        }
 
         &:hover {
             --_state-layer-op: 20%;
@@ -194,28 +206,21 @@
             padding-left: 10px;
         }
 
-        .md-20 {
-            font-size: 20px !important;
+        .md-size {
+            font-size: var(--font-size-1) !important;
+
+            @media screen and (min-width: 768px) {
+                font-size: var(--font-size-2) !important;
+            }
         }
     }
 
-    #action-button {
+    .action-button {
         border-radius: 50%;
         position: fixed;
         bottom: 30px;
         right: 30px;
         cursor: pointer;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .center-box {
-        color: white;
-        padding: 15px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translateX(-50%) translateY(-50%);
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
     }
 }

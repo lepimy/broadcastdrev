@@ -1,21 +1,21 @@
 document.addEventListener("DOMContentLoaded", (event) => {
   const sendButton = document.getElementById("send-button");
-
-  if (flvjs.isSupported()) {
-    var videoElement = document.getElementById("videoElement");
-    var flvPlayer = flvjs.createPlayer({
-      type: "flv",
-      url: "http://localhost:8000/live/my_stream.flv",
-    });
-    flvPlayer.attachMediaElement(videoElement);
-    flvPlayer.load();
-    flvPlayer.play();
-  }
+  const chatInput = document.getElementById("chat-input");
+  const chatPopover = document.getElementById("chat-popover");
 
   sendButton.addEventListener("click", function () {
     let message = document.getElementById("chat-input").value.trim();
     if (message !== "") {
       sendQuestion(message);
+    }
+  });
+  chatInput.addEventListener("keypress", function (event) {
+    let message = this.value;
+    if (event.key === "Enter") {
+      if (message !== "") {
+        sendQuestion(message);
+        document.getElementById("chat-popover").hidePopover();
+      }
     }
   });
 });
